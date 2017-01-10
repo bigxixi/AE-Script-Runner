@@ -35,8 +35,14 @@ function UI(thisObj){
 							"app.endUndoGroup();",
 							"pick a jsx file"];
 				configFile.open("w");
+				configFile.encoding = "UTF-8";
+				if($.os.toLowerCase().indexOf('mac')){
+					configFile.lineFeed = "Macintosh";
+				}else{
+					configFile.lineFeed = "Windows";
+				}
 				for(var i=0;i<configs.length;i++){
-					configFile.write(configs[i]);
+					configFile.writeln(configs[i]);
 				}
 				configFile.close();
 			}
@@ -155,6 +161,12 @@ function UI(thisObj){
 				var jsxPathTemp = jsxPath.text;
 				configs.push(jsxPathTemp);
 				configFile.open("w");
+				configFile.encoding = "UTF-8";
+				if($.os.toLowerCase().indexOf('mac')){
+					configFile.lineFeed = "Macintosh";
+				}else{
+					configFile.lineFeed = "Windows";
+				}
 				for(var i=0;i<configs.length;i++){
 					configFile.write(configs[i]);
 				}
@@ -168,7 +180,3 @@ function UI(thisObj){
 	}
 	return win;
 }
-
-
-
-
