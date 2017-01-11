@@ -1,6 +1,6 @@
 //Script by Bigxixi
 //contact: xixi@bigxixi.com
-//build the UI
+
 var drawUI = UI(this);
 if(drawUI instanceof Window){
 		drawUI.center();
@@ -101,8 +101,14 @@ function UI(thisObj){
 					if(saveJSX.substring(saveJSX.lastIndexOf("."),saveJSX.length).toLowerCase() != ".jsx"){
 						saveJSX = saveJSX + ".jsx";
 					}
-					var saveJSXFile = File(saveJSX);
+					var saveJSXFile = new File(saveJSX);
+						saveJSXFile.encoding = "UTF-8";
 						saveJSXFile.open("w");
+						if($.os.toLowerCase().indexOf('mac')){
+							saveJSXFile.lineFeed = "Macintosh";
+						}else{
+							saveJSXFile.lineFeed = "Windows";
+						}
 						saveJSXFile.write(script.text);
 						saveJSXFile.close();
 				}
