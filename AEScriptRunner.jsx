@@ -111,8 +111,8 @@ function UI(thisObj){
 						}
 						saveJSXFile.write(script.text);
 						saveJSXFile.close();
+						alert("File save at:\n"+saveJSX);
 				}
-				alert("File save at:\n"+saveJSX);
 			}
 			function clsTexts(){
 					script.text = "";
@@ -140,7 +140,7 @@ function UI(thisObj){
 				}
 			};
 			function getJSXPath(){
-				var getJSX = File.openDialog();
+				var getJSX = File.openDialog().fsName;
 				if(getJSX != null){
 					jsxPath.text = decodeURI(getJSX);
 					runJSX();
