@@ -150,6 +150,7 @@ function UI(thisObj){
 				var JSXFile = new File(jsxPath.text);
 				if(JSXFile.exists){
 					JSXFile.open("r");
+					JSXFile.encoding = "UTF-8";
 					var jsxTemp = JSXFile.read();
 					JSXFile.close();
 					eval(jsxTemp);
